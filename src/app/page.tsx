@@ -1,3 +1,5 @@
+import { ItemCard } from "@/components/Molecules/ItemCard/ItemCard";
+
 export default async function Home() {
   return (
     <div className="w-full">
@@ -7,6 +9,7 @@ export default async function Home() {
         <div className="w-px h-[22px] border-r-2 border-[#3B3B3B]" />
         <p className="text-xs ">All</p>
       </div>
+      <ItemCard />
     </div>
   );
 }

@@ -70,6 +70,14 @@ const config: Config = {
             fontWeight: "700",
           },
         ],
+        "tag-desktop": [
+          "16px",
+          {
+            lineHeight: "16px",
+            letterSpacing: "0.4px",
+            fontWeight: "400",
+          },
+        ],
         body2: [
           "14px",
           {
