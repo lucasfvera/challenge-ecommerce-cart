@@ -4,15 +4,24 @@ interface ButtonProps {
   children: ReactNode;
   variant?: "primary" | "secondary" | "tertiary";
   size?: "sm" | "md";
+  width?: "default" | "full";
+  customClasses?: string;
 }
 
 export const Button = ({
   variant = "primary",
   size = "md",
+  width = "default",
+  customClasses = "",
   children,
   ...props
 }: ButtonProps) => {
   const baseClasses = "text-button-mobile md:text-button-desktop rounded-lg";
+
+  const widthClasses = {
+    default: "w-full lg:w-fit",
+    full: "w-full",
+  };
 
   const variantClasses = {
     primary: "text-white bg-[#585660] hover:bg-[#3E3C44] ",
@@ -29,6 +38,8 @@ export const Button = ({
     baseClasses,
     variantClasses[variant],
     sizeClasses[size],
+    widthClasses[width],
+    customClasses,
   ].join(" ");
 
   return (

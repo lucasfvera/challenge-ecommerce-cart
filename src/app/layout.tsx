@@ -20,7 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${archivo.className} flex flex-col h-screen`}>
         <NavigationBar />
-        <main className="flex flex-1 px-6 md:px-32">{children}</main>
+        <main className="flex flex-1 px-6 md:px-12 xl:px-24 2xl:px-32">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

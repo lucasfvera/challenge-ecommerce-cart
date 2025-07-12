@@ -32,7 +32,9 @@ export const GameCard = ({ game }: GameCardProps) => {
           <p className="text-xs font-bold text-inherit">$ {price}</p>
         </div>
       </div>
-      <Button variant="secondary">ADD TO CART</Button>
+      <Button variant="secondary" width="full">
+        ADD TO CART
+      </Button>
     </div>
   );
 };

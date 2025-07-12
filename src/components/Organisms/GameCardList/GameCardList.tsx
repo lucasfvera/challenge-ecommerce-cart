@@ -1,3 +1,4 @@
+import { Button } from "@/components/Atoms/Button/Button";
 import { GameCard } from "@/components/Molecules/GameCard/GameCard";
 import { Game } from "@/utils/endpoint";
 
@@ -11,6 +12,7 @@ export const GameCardList = ({ games }: GameCardListProps) => {
       {games.map((game) => (
         <GameCard key={game.id} game={game} />
       ))}
+      <Button customClasses={"col-span-full"}>SEE MORE</Button>
     </div>
   );
 };
