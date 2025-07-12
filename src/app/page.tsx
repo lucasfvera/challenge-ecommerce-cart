@@ -1,5 +1,4 @@
 import { GamesResponse } from "@/app/api/games/route";
-import { GameCard } from "@/components/Molecules/GameCard/GameCard";
 import { GameCardList } from "@/components/Organisms/GameCardList/GameCardList";
 
 export default async function Home() {
