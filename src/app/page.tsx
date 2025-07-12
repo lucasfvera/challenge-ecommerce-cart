@@ -1,6 +1,11 @@
-import { ItemCard } from "@/components/Molecules/ItemCard/ItemCard";
+import { GamesResponse } from "@/app/api/games/route";
+import { GameCard } from "@/components/Molecules/GameCard/GameCard";
+import { GameCardList } from "@/components/Organisms/GameCardList/GameCardList";
 
 export default async function Home() {
+  const gamesResponse = await fetch("http://localhost:3000/api/games");
+  const gamesData: GamesResponse = await gamesResponse.json();
+
   return (
     <div className="w-full">
       <p className="text-2xl">Top Sellers</p>
@@ -9,7 +14,7 @@ export default async function Home() {
         <div className="w-px h-[22px] border-r-2 border-[#3B3B3B]" />
         <p className="text-xs ">All</p>
       </div>
-      <ItemCard />
+      <GameCardList games={gamesData.games} />
     </div>
   );
 }

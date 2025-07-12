@@ -10,7 +10,7 @@ export const GameCard = ({ game }: GameCardProps) => {
   const { genre, price, name, isNew, image } = game;
 
   return (
-    <div className="p-6 rounded-2xl border-[0.5px] border-[#8F8F8F] max-w-[380px] flex flex-col gap-5">
+    <div className="p-6 rounded-2xl border-[0.5px] border-[#8F8F8F] w-full flex flex-col gap-5">
       <div className="relative min-h-[240px] rounded-t-2xl overflow-hidden">
         {isNew && (
           <p className="absolute top-3 left-3 rounded px-3 py-2 bg-white z-10 text-tag-desktop">
