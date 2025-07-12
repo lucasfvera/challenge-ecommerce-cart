@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
 import "./globals.css";
+import { NavigationBar } from "@/components/Molecules/NavigationBar/NavigationBar";
+import { Footer } from "@/components/Molecules/Footer/Footer";
 
 const archivo = Archivo({ subsets: ["latin"] });
 
@@ -16,7 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${archivo.className}`}>{children}</body>
+      <body className={`${archivo.className} flex flex-col h-screen`}>
+        <NavigationBar />
+        <main className="flex flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

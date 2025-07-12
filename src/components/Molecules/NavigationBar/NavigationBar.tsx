@@ -1,0 +1,20 @@
+import { LogoTypography } from "@/components/Atoms/Typography/LogoTypograhpy";
+import Image from "next/image";
+import Link from "next/link";
+
+const NAVBAR_HEIGHT = 64;
+
+export const NavigationBar = () => {
+  return (
+    <div
+      className={`bg-[#EEEEEE] flex h-[${NAVBAR_HEIGHT}px] py-5 md:px-32 px-6 justify-between`}
+    >
+      <Link href={"/"}>
+        <LogoTypography>GamerShop</LogoTypography>
+      </Link>
+      <Link href={"/cart"}>
+        <Image alt="Cart icon" src={"/cart-icon.svg"} width={24} height={24} />
+      </Link>
+    </div>
+  );
+};
