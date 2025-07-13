@@ -1,10 +1,9 @@
-import { GamesResponse } from "@/app/api/games/route";
+import { SkeletonGameList } from "@/components/Atoms/LoadingSkeletons/SkeletonGameList";
 import { GameCardList } from "@/components/Organisms/GameCardList/GameCardList";
+import { fetchGamesAction } from "@/services/fetchGamesAction";
+import { Suspense } from "react";
 
 export default async function Home() {
-  const gamesResponse = await fetch("http://localhost:3000/api/games");
-  const gamesData: GamesResponse = await gamesResponse.json();
-
   return (
     <div className="w-full pb-12">
       <div className="relative py-12">
@@ -19,7 +18,15 @@ export default async function Home() {
           id="divider"
         ></div>
       </div>
-      <GameCardList games={gamesData.games} />
+      <Suspense fallback={<SkeletonGameList />}>
+        <InitialCardList />
+      </Suspense>
     </div>
   );
+}
+
+async function InitialCardList() {
+  const gamesData = await fetchGamesAction();
+
+  return <GameCardList gamesData={gamesData} />;
 }

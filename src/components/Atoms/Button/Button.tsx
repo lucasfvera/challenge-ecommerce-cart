@@ -1,6 +1,7 @@
-import { ReactNode } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
-interface ButtonProps {
+interface ButtonProps
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "className"> {
   children: ReactNode;
   variant?: "primary" | "secondary" | "tertiary";
   size?: "sm" | "md";
@@ -16,7 +17,8 @@ export const Button = ({
   children,
   ...props
 }: ButtonProps) => {
-  const baseClasses = "text-button-mobile md:text-button-desktop rounded-lg";
+  const baseClasses =
+    "text-button-mobile md:text-button-desktop rounded-lg disabled:bg-[#D4D4D4]";
 
   const widthClasses = {
     default: "w-full lg:w-fit",
