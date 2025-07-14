@@ -6,6 +6,7 @@ import { SkeletonGameList } from "@/components/Atoms/LoadingSkeletons/SkeletonGa
 import { GameCard } from "@/components/Molecules/GameCard/GameCard";
 import { fetchGamesAction } from "@/services/fetchGamesAction";
 import { Game } from "@/utils/endpoint";
+import { useLocalStorage } from "usehooks-ts";
 import { useSearchParams } from "next/navigation";
 import { use, useState, useTransition, Suspense } from "react";
 
@@ -15,6 +16,19 @@ interface GameCardListContentProps {
 
 const GameCardListContent = ({ gamesData }: GameCardListContentProps) => {
   const data = use(gamesData);
+
+  const [storageCartGamesIds, setStorageCartGamesId] = useLocalStorage<
+    string[]
+  >("cart-games", [], { initializeWithValue: false });
+  const addGameToCart = (id: string) => {
+    setStorageCartGamesId((prev) => [...prev, id]);
+  };
+  const removeGameFromCart = (id: string) => {
+    const newCart = storageCartGamesIds.filter((gameId) => gameId !== id);
+    setStorageCartGamesId(newCart);
+  };
+  const isGameInCart = (id: string) => storageCartGamesIds.includes(id);
+
   const searchParams = useSearchParams();
   const [games, setGames] = useState<Game[]>(data?.games || []);
   const [localGamesData, setLocalGamesData] = useState<GamesResponse | null>(
@@ -48,7 +62,16 @@ const GameCardListContent = ({ gamesData }: GameCardListContentProps) => {
   return (
     <div className="py-12 grid grid-cols-[repeat(auto-fit,_minmax(300px,380px))] justify-center place-items-stretch gap-12 w-full">
       {games.map((game) => (
-        <GameCard key={game.id} game={game} />
+        <GameCard
+          ctaAction={() => {
+            isGameInCart(game.id)
+              ? removeGameFromCart(game.id)
+              : addGameToCart(game.id);
+          }}
+          isGameInCart={isGameInCart(game.id)}
+          key={game.id}
+          game={game}
+        />
       ))}
       {!isFinalPage && (
         <Button

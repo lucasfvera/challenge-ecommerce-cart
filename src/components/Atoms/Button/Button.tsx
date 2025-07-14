@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 interface ButtonProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "className"> {
   children: ReactNode;
-  variant?: "primary" | "secondary" | "tertiary";
+  variant?: "primary" | "secondary" | "secondaryDestroy" | "tertiary";
   size?: "sm" | "md";
   width?: "default" | "full";
   customClasses?: string;
@@ -28,6 +28,8 @@ export const Button = ({
   const variantClasses = {
     primary: "text-white bg-[#585660] hover:bg-[#3E3C44] ",
     secondary: "border border-[#3B3B3B] text-[#3B3B3B] hover:bg-[#EEEEEE]",
+    secondaryDestroy:
+      "border border-[#d04343] text-[#d04343] hover:bg-[#f64f4f4d]",
     tertiary: "",
   };
 

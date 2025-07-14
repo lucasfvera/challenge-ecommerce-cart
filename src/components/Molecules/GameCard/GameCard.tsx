@@ -1,12 +1,17 @@
+"use client";
+
 import { Button } from "@/components/Atoms/Button/Button";
 import { Game } from "@/utils/endpoint";
 import Image from "next/image";
+import { ButtonHTMLAttributes } from "react";
 
 interface GameCardProps {
   game: Game;
+  ctaAction?: ButtonHTMLAttributes<HTMLButtonElement>["onClick"];
+  isGameInCart: boolean;
 }
 
-export const GameCard = ({ game }: GameCardProps) => {
+export const GameCard = ({ game, ctaAction, isGameInCart }: GameCardProps) => {
   const { genre, price, name, isNew, image } = game;
 
   return (
@@ -32,8 +37,12 @@ export const GameCard = ({ game }: GameCardProps) => {
           <p className="text-xs font-bold text-inherit">$ {price}</p>
         </div>
       </div>
-      <Button variant="secondary" width="full">
-        ADD TO CART
+      <Button
+        onClick={ctaAction}
+        variant={isGameInCart ? "secondaryDestroy" : "secondary"}
+        width="full"
+      >
+        {isGameInCart ? "REMOVE" : "ADD TO CART"}
       </Button>
     </div>
   );
