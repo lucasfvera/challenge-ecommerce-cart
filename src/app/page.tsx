@@ -1,8 +1,6 @@
-import { SkeletonGameList } from "@/components/Atoms/LoadingSkeletons/SkeletonGameList";
 import { GenreFilterDropdown } from "@/components/Molecules/GenreFilterDropdown/GenreFilterDropdown";
 import { GameCardList } from "@/components/Organisms/GameCardList/GameCardList";
 import { fetchGamesAction } from "@/services/fetchGamesAction";
-import { Suspense } from "react";
 
 export default async function Home({
   searchParams,
