@@ -2,31 +2,46 @@
 
 import { GamesResponse } from "@/app/api/games/route";
 import { Button } from "@/components/Atoms/Button/Button";
+import { SkeletonGameList } from "@/components/Atoms/LoadingSkeletons/SkeletonGameList";
 import { GameCard } from "@/components/Molecules/GameCard/GameCard";
 import { fetchGamesAction } from "@/services/fetchGamesAction";
 import { Game } from "@/utils/endpoint";
-import { useState, useTransition } from "react";
+import { useSearchParams } from "next/navigation";
+import { use, useState, useTransition, Suspense } from "react";
 
-interface GameCardListProps {
-  gamesData: GamesResponse;
+interface GameCardListContentProps {
+  gamesData: Promise<GamesResponse | undefined>;
 }
 
-export const GameCardList = ({ gamesData }: GameCardListProps) => {
-  const [games, setGames] = useState<Game[]>(gamesData.games);
+const GameCardListContent = ({ gamesData }: GameCardListContentProps) => {
+  const data = use(gamesData);
+  const searchParams = useSearchParams();
+  const [games, setGames] = useState<Game[]>(data?.games || []);
   const [localGamesData, setLocalGamesData] = useState<GamesResponse | null>(
-    gamesData
+    null
   );
   const [isPending, startTransition] = useTransition();
-  const isFinalPage =
-    localGamesData?.currentPage === localGamesData?.totalPages;
+  const isFinalPage = localGamesData?.currentPage === data?.totalPages;
 
-  const loadPageHandler = () => {
+  const handleLoadMore = () => {
     startTransition(async () => {
-      const res = await fetchGamesAction(
-        localGamesData?.currentPage ? localGamesData.currentPage + 1 : 1
-      );
-      setLocalGamesData(res);
-      setGames((prev) => [...prev, ...res.games]);
+      let nextPageNumber;
+      if (!localGamesData) {
+        if (data) nextPageNumber = data.currentPage + 1;
+      } else {
+        nextPageNumber = localGamesData?.currentPage + 1;
+      }
+
+      // This is to keep the genre when fetching new pages but for this use case
+      // we don't actually have multiple pages for the genres
+      const currentGenre = searchParams.get("genre") || "";
+      const res = await fetchGamesAction(nextPageNumber, currentGenre);
+      startTransition(() => {
+        if (res) {
+          setLocalGamesData(res);
+          setGames((prev) => [...prev, ...res.games]);
+        }
+      });
     });
   };
 
@@ -38,12 +53,20 @@ export const GameCardList = ({ gamesData }: GameCardListProps) => {
       {!isFinalPage && (
         <Button
           customClasses={"col-span-full"}
-          onClick={loadPageHandler}
+          onClick={handleLoadMore}
           disabled={isPending}
         >
           {isPending ? "Loading" : "SEE MORE"}
         </Button>
       )}
     </div>
+  );
+};
+
+export const GameCardList = ({ gamesData }: GameCardListContentProps) => {
+  return (
+    <Suspense fallback={<SkeletonGameList />}>
+      <GameCardListContent gamesData={gamesData} />
+    </Suspense>
   );
 };
