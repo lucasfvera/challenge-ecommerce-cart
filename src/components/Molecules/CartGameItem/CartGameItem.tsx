@@ -10,11 +10,16 @@ interface GameCardProps {
 
 export const CartGameItem = ({ game }: GameCardProps) => {
   const { removeGameFromCart } = useCartStorage();
-  const { genre, price, name, image } = game;
+  const { genre, price, name, image, description, isNew } = game;
 
   return (
     <div className="p-5 w-full max-w-[678px] justify-between h-full min-h-[196px] flex gap-6">
       <div className="relative min-w-[259px] md:min-w-[256px] h-auto">
+        {isNew && (
+          <p className="absolute top-3 left-3 rounded px-3 py-2 bg-white z-10 text-tag-desktop">
+            New
+          </p>
+        )}
         <Image
           alt=""
           src={image}
@@ -29,7 +34,7 @@ export const CartGameItem = ({ game }: GameCardProps) => {
           <p className="text-ag font-bold text-[#737373]">{genre}</p>
           <div className="flex flex-col gap-2">
             <p className="text-xs font-bold text-inherit">{name}</p>
-            {/* <p className="text-ag text-inherit">Description if necessary</p> */}
+            <p className="text-ag text-inherit">{description}</p>
           </div>
         </div>
         <p className="text-xs font-bold text-inherit self-end">$ {price}</p>
