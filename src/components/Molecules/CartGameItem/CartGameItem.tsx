@@ -1,5 +1,6 @@
 "use client";
 
+import { useCartStorage } from "@/hooks/useCartStorage";
 import { Game } from "@/utils/endpoint";
 import Image from "next/image";
 
@@ -8,6 +9,7 @@ interface GameCardProps {
 }
 
 export const CartGameItem = ({ game }: GameCardProps) => {
+  const { removeGameFromCart } = useCartStorage();
   const { genre, price, name, image } = game;
 
   return (
@@ -33,7 +35,11 @@ export const CartGameItem = ({ game }: GameCardProps) => {
         <p className="text-xs font-bold text-inherit self-end">$ {price}</p>
       </div>
 
-      <button aria-label="remove item from cart" className="self-start">
+      <button
+        onClick={() => removeGameFromCart(game.id)}
+        aria-label="remove item from cart"
+        className="self-start"
+      >
         <Image alt="" src={"/cross-icon.svg"} width={24} height={24} />
       </button>
     </div>
