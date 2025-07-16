@@ -6,9 +6,9 @@ export default async function CartPage() {
   return (
     <div className="w-full pb-12">
       <div className="py-6">
-        <Link href={"/"} className="flex w-fit gap-2">
+        <Link href={"/"} className="flex w-fit gap-2 items-center">
           <Image alt="" src={"/arrow-left-icon.svg"} width={24} height={24} />
-          {"Back to Catalog"}
+          <p className="text-ag">{"Back to Catalog"}</p>
         </Link>
       </div>
       {/* Since we fetch the games with the IDs that are stored in the local

@@ -24,11 +24,11 @@ export const PageContent = () => {
 
   return (
     <>
-      <div className="py-12">
-        <p className="text-2xl">Your Cart</p>
-        <p className="text-xl">{games?.length} items</p>
+      <div className="py-8 md:py-12">
+        <p className="text-xl md:text-2xl font-bold mb-3">Your Cart</p>
+        <p className="text-xs md:text-xl">{games?.length} items</p>
       </div>
-      <div className="flex justify-between">
+      <div className="flex flex-col lg:flex-row justify-between gap-14">
         <CartGamesList games={games} />
         <OrderSummaryTable games={games} />
       </div>
