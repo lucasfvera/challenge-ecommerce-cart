@@ -53,11 +53,11 @@ const GameCardListContent = ({ gamesData }: GameCardListContentProps) => {
     <div className="py-12 grid grid-cols-[repeat(auto-fit,_minmax(300px,380px))] justify-center place-items-stretch gap-12 w-full">
       {games.map((game) => (
         <GameCard
-          ctaAction={() => {
+          ctaAction={() =>
             isGameInCart(game.id)
               ? removeGameFromCart(game.id)
-              : addGameToCart(game.id);
-          }}
+              : addGameToCart(game.id)
+          }
           isGameInCart={isGameInCart(game.id)}
           key={game.id}
           game={game}
