@@ -6,9 +6,9 @@ import { SkeletonGameList } from "@/components/Atoms/LoadingSkeletons/SkeletonGa
 import { GameCard } from "@/components/Molecules/GameCard/GameCard";
 import { fetchGamesAction } from "@/services/fetchGamesAction";
 import { Game } from "@/utils/endpoint";
-import { useLocalStorage } from "usehooks-ts";
 import { useSearchParams } from "next/navigation";
 import { use, useState, useTransition, Suspense } from "react";
+import { useCartStorage } from "@/hooks/useCartStorage";
 
 interface GameCardListContentProps {
   gamesData: Promise<GamesResponse | undefined>;
@@ -17,17 +17,7 @@ interface GameCardListContentProps {
 const GameCardListContent = ({ gamesData }: GameCardListContentProps) => {
   const data = use(gamesData);
 
-  const [storageCartGamesIds, setStorageCartGamesId] = useLocalStorage<
-    string[]
-  >("cart-games", [], { initializeWithValue: false });
-  const addGameToCart = (id: string) => {
-    setStorageCartGamesId((prev) => [...prev, id]);
-  };
-  const removeGameFromCart = (id: string) => {
-    const newCart = storageCartGamesIds.filter((gameId) => gameId !== id);
-    setStorageCartGamesId(newCart);
-  };
-  const isGameInCart = (id: string) => storageCartGamesIds.includes(id);
+  const { addGameToCart, removeGameFromCart, isGameInCart } = useCartStorage();
 
   const searchParams = useSearchParams();
   const [games, setGames] = useState<Game[]>(data?.games || []);
