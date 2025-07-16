@@ -14,14 +14,14 @@ export default async function Home({
   const gamesData = fetchGamesAction(1, genre !== "all" ? genre : "");
 
   return (
-    <div className="w-full pb-12">
+    <div className="relative w-full pb-12">
       <div className="relative py-12">
-        <p className="text-2xl">Top Sellers</p>
+        <p className="text-2xl font-bold mb-9 md:mb-12">Top Sellers</p>
         <GenreFilterDropdown />
         <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-screen border-b border-b-[#EFEDF3]"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full border-b border-b-[#EFEDF3]"
           id="divider"
-        ></div>
+        />
       </div>
       <GameCardList key={genre} gamesData={gamesData} />
     </div>

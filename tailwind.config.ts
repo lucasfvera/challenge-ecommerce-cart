@@ -13,13 +13,16 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      screens: {
+        xs: "400px", // small mobile
+      },
       fontSize: {
         "2xl": [
           "36px",
           {
             lineHeight: "40px",
             letterSpacing: "0.4px",
-            fontWeight: "700",
+            fontWeight: "400",
           },
         ],
         xl: [

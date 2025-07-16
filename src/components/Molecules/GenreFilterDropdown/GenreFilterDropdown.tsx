@@ -11,7 +11,7 @@ export const GenreFilterDropdown = () => {
   const selectedGenre = searchParams.get("genre");
 
   return (
-    <div className="flex gap-2 justify-end w-full">
+    <div className="flex gap-6 justify-end w-full">
       <p className="text-xs font-bold">Genre</p>
       <div className="w-px h-[22px] border-r-2 border-[#3B3B3B]" />
       <select
@@ -23,7 +23,7 @@ export const GenreFilterDropdown = () => {
           });
           replace(newUrl);
         }}
-        className="text-xs"
+        className="text-xs flex-1 xs:flex-none xs:self-start"
         defaultValue={selectedGenre ? selectedGenre : "all"}
       >
         <option value="all">All</option>
