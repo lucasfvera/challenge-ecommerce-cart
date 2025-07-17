@@ -12,7 +12,7 @@ export const OrderSummaryTable = ({ games }: { games: Game[] | null }) => {
 
   //TODO Add empty state to the cart
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 w-full max-w-[500px]">
       <div className="flex flex-col p-8 rounded-lg border-[#8f8f8f] border-[0.5px] gap-8 w-full">
         <div>
           <p className="text-xl font-bold">Order Summary</p>
