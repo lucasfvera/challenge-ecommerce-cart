@@ -5,7 +5,7 @@ import { GamesResponse } from "@/app/api/games/route";
 export const fetchGamesAction = async (page = 1, genre = "") => {
   try {
     const response = await fetch(
-      `http://localhost:3000/api/games?page=${page}&genre=${genre}`
+      `${process.env.BASE_API_URL}games?page=${page}&genre=${genre}`
     );
     const data: GamesResponse = await response.json();
     return data;
@@ -20,7 +20,7 @@ export const fetchGamesByIdAction = async (ids = [] as string[]) => {
 
   try {
     const response = await fetch(
-      `http://localhost:3000/api/games?ids=${paramsIds}`
+      `${process.env.BASE_API_URL}games?ids=${paramsIds}`
     );
     const data: Pick<GamesResponse, "games"> = await response.json();
     return data;
