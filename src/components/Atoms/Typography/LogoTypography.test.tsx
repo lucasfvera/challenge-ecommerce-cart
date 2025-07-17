@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { LogoTypography } from "./LogoTypograhpy";
+import { LogoTypography } from "./LogoTypography";
 
 describe("Atoms > LogoTypography", () => {
   it("renders children text", () => {
