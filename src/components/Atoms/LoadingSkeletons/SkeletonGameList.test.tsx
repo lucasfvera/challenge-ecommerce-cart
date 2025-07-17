@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { SkeletonGameList } from "./SkeletonGameList";
 
-describe("SkeletonGameList", () => {
+describe("Atoms > SkeletonGameList", () => {
   it("renders three LoadingSkeletonCard components", () => {
     // Arrange
     render(<SkeletonGameList />);

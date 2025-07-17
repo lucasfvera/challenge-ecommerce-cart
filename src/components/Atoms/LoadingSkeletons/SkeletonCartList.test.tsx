@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { SkeletonCartList } from "./SkeletonCartList";
 
-describe("SkeletonCartList", () => {
+describe("Atoms > SkeletonCartList", () => {
   it("renders two SkeletonCart components", () => {
     // Arrange
     render(<SkeletonCartList />);

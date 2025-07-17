@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { LogoTypography } from "./LogoTypograhpy";
 
-describe("LogoTypography", () => {
+describe("Atoms > LogoTypography", () => {
   it("renders children text", () => {
     // Arrange
     const text = "Logo Text";

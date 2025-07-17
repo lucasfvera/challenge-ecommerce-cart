@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { LoadingSkeletonCard } from "./LoadingSkeletonCard";
 
-describe("LoadingSkeletonCard", () => {
+describe("Atoms > LoadingSkeletonCard", () => {
   it("renders the skeleton card root element", () => {
     // Arrange
     render(<LoadingSkeletonCard />);
