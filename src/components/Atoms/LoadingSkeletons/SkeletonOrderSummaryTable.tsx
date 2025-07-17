@@ -1,7 +1,7 @@
 export const SkeletonOrderSummaryTable = () => {
   return (
     <div
-      className="flex flex-col gap-8"
+      className="flex flex-col gap-8 w-full max-w-[500px]"
       data-testid="skeleton-order-summary-table"
     >
       <div className="flex flex-col p-8 rounded-lg border-[#8f8f8f] border-[0.5px] gap-8 w-full">
