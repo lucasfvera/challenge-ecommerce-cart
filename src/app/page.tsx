@@ -1,11 +1,13 @@
+import { SkeletonGameList } from "@/components/Atoms/LoadingSkeletons/SkeletonGameList";
 import { GenreFilterDropdown } from "@/components/Molecules/GenreFilterDropdown/GenreFilterDropdown";
 import { GameCardList } from "@/components/Organisms/GameCardList/GameCardList";
 import { fetchGamesAction } from "@/services/fetchGamesAction";
+import { Suspense } from "react";
 
 export default async function Home({
   searchParams,
 }: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  searchParams: Promise<{ [key: string]: string | undefined }>;
 }) {
   const params = await searchParams;
   const genre = params["genre"] as string | undefined;
@@ -23,7 +25,9 @@ export default async function Home({
           id="divider"
         />
       </div>
-      <GameCardList key={genre} gamesData={gamesData} />
+      <Suspense key={genre} fallback={<SkeletonGameList />}>
+        <GameCardList gamesData={gamesData} />
+      </Suspense>
     </div>
   );
 }

@@ -2,19 +2,18 @@
 
 import { GamesResponse } from "@/app/api/games/route";
 import { Button } from "@/components/Atoms/Button/Button";
-import { SkeletonGameList } from "@/components/Atoms/LoadingSkeletons/SkeletonGameList";
 import { GameCard } from "@/components/Molecules/GameCard/GameCard";
 import { fetchGamesAction } from "@/services/fetchGamesAction";
 import { Game } from "@/utils/endpoint";
 import { useSearchParams } from "next/navigation";
-import { use, useState, useTransition, Suspense } from "react";
+import { use, useState, useTransition } from "react";
 import { useCartStorage } from "@/hooks/useCartStorage";
 
-interface GameCardListContentProps {
+interface GameCardListProps {
   gamesData: Promise<GamesResponse | undefined>;
 }
 
-const GameCardListContent = ({ gamesData }: GameCardListContentProps) => {
+export const GameCardList = ({ gamesData }: GameCardListProps) => {
   const data = use(gamesData);
 
   const { addGameToCart, removeGameFromCart, isGameInCart } = useCartStorage();
@@ -76,13 +75,5 @@ const GameCardListContent = ({ gamesData }: GameCardListContentProps) => {
         </Button>
       )}
     </div>
-  );
-};
-
-export const GameCardList = ({ gamesData }: GameCardListContentProps) => {
-  return (
-    <Suspense fallback={<SkeletonGameList />}>
-      <GameCardListContent gamesData={gamesData} />
-    </Suspense>
   );
 };
