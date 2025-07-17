@@ -23,7 +23,7 @@ export const GameCard = ({ game, ctaAction, isGameInCart }: GameCardProps) => {
           </p>
         )}
         <Image
-          alt=""
+          alt="Game photo"
           src={image}
           fill
           sizes="(width > 640px) 332px"
@@ -33,7 +33,9 @@ export const GameCard = ({ game, ctaAction, isGameInCart }: GameCardProps) => {
       <div className="flex flex-col gap-3">
         <p className="text-ag font-bold text-[#737373]">{genre}</p>
         <div className="flex w-full justify-between text-[#3B3B3B]">
-          <p className="text-lg font-bold text-inherit">{name}</p>
+          <p className="text-lg font-bold text-inherit truncate max-w-[70%]">
+            {name}
+          </p>
           <p className="text-xs font-bold text-inherit">$ {price}</p>
         </div>
       </div>

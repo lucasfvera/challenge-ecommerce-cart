@@ -21,7 +21,7 @@ export const CartGameItem = ({ game }: GameCardProps) => {
           </p>
         )}
         <Image
-          alt=""
+          alt="Game photo"
           src={image}
           fill
           sizes="(width > 640px) 256px"

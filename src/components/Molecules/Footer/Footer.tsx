@@ -5,7 +5,7 @@ const FOOTER_HEIGHT = 172;
 
 export const Footer = () => {
   return (
-    <div
+    <footer
       className={`bg-[#404040] flex items-center justify-center py-16 md:px-32 px-6 h-[${FOOTER_HEIGHT}px]`}
     >
       <Link href={"/"}>
@@ -16,6 +16,6 @@ export const Footer = () => {
           height={44}
         />
       </Link>
-    </div>
+    </footer>
   );
 };

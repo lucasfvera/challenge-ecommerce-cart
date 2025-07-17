@@ -6,7 +6,7 @@ const NAVBAR_HEIGHT = 64;
 
 export const NavigationBar = () => {
   return (
-    <div
+    <nav
       className={`bg-[#EEEEEE] flex h-[${NAVBAR_HEIGHT}px] py-5 px-6 md:px-12 xl:px-24 2xl:px-32 justify-between`}
     >
       <Link href={"/"}>
@@ -15,6 +15,6 @@ export const NavigationBar = () => {
       <Link href={"/cart"}>
         <Image alt="Cart icon" src={"/cart-icon.svg"} width={24} height={24} />
       </Link>
-    </div>
+    </nav>
   );
 };
