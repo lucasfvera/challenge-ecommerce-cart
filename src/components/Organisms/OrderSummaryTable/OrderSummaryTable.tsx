@@ -1,10 +1,11 @@
 "use client";
 
 import { Button } from "@/components/Atoms/Button/Button";
+import { SkeletonOrderSummaryTable } from "@/components/Atoms/LoadingSkeletons/SkeletonOrderSummaryTable";
 import { Game } from "@/utils/endpoint";
 
 export const OrderSummaryTable = ({ games }: { games: Game[] | null }) => {
-  if (!games) return <div>Loading...</div>;
+  if (!games) return <SkeletonOrderSummaryTable />;
 
   const numberOfItems = games.length;
   const totalOrderPrice = games.reduce((acc, game) => (acc += game.price), 0);
