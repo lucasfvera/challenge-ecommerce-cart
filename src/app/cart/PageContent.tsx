@@ -1,5 +1,6 @@
 "use client";
 
+import { EmptyCartState } from "@/app/cart/EmptyCartState";
 import { CartGamesList } from "@/components/Organisms/CartGamesList/CartGamesList";
 import { OrderSummaryTable } from "@/components/Organisms/OrderSummaryTable/OrderSummaryTable";
 import { useCartStorage } from "@/hooks/useCartStorage";
@@ -28,10 +29,14 @@ export const PageContent = () => {
         <p className="text-xl md:text-2xl font-bold mb-3">Your Cart</p>
         <p className="text-xs md:text-xl">{games?.length} items</p>
       </div>
-      <div className="flex flex-col lg:flex-row justify-between gap-14">
-        <CartGamesList games={games} />
-        <OrderSummaryTable games={games} />
-      </div>
+      {games && games.length === 0 ? (
+        <EmptyCartState />
+      ) : (
+        <div className="flex flex-col lg:flex-row justify-between gap-14">
+          <CartGamesList games={games} />
+          <OrderSummaryTable games={games} />
+        </div>
+      )}
     </>
   );
 };
