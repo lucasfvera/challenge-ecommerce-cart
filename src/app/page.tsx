@@ -7,10 +7,9 @@ import { Suspense } from "react";
 export default async function Home({
   searchParams,
 }: {
-  searchParams: Promise<{ [key: string]: string | undefined }>;
+  searchParams: { [key: string]: string | undefined };
 }) {
-  const params = await searchParams;
-  const genre = params["genre"] as string | undefined;
+  const genre = searchParams["genre"] as string | undefined;
   // We need to keep the genre all param to trigger the dynamic behavior
   // but the api doesn't recognizes it, so we pass an empty string
   const gamesData = fetchGamesAction(1, genre !== "all" ? genre : "");
