@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { GenreFilterDropdown } from "./GenreFilterDropdown";
 import { availableFilters } from "@/utils/endpoint";
-import { useBuildUrlSearchParam } from "@/utils/useBuildUrlSearchParam";
+import { useBuildUrlSearchParam } from "@/hooks/useBuildUrlSearchParam";
 import { useSearchParams, useRouter } from "next/navigation";
 
 jest.mock("next/navigation", () => ({

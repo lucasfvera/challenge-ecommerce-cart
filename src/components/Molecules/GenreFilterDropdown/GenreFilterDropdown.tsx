@@ -1,7 +1,7 @@
 "use client";
 
 import { availableFilters } from "@/utils/endpoint";
-import { useBuildUrlSearchParam } from "@/utils/useBuildUrlSearchParam";
+import { useBuildUrlSearchParam } from "@/hooks/useBuildUrlSearchParam";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ChangeEvent } from "react";
 
