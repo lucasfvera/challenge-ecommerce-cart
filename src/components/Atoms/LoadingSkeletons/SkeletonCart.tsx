@@ -1,7 +1,10 @@
 import React from "react";
 
 export const SkeletonCart = () => (
-  <div className="p-5 w-full max-w-[678px] justify-between h-[196px] flex gap-6">
+  <div
+    className="p-5 w-full max-w-[678px] justify-between h-[196px] flex gap-6"
+    data-testid="skeleton-cart"
+  >
     {/* Image skeleton */}
     <div className="relative min-w-[259px] md:min-w-[256px] h-[160px]">
       <div className="w-full h-full bg-gray-300 animate-pulse rounded-xl" />
