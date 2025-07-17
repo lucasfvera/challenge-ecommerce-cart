@@ -6,7 +6,7 @@ describe("Atoms > SkeletonOrderSummaryTable", () => {
     // Arrange
     render(<SkeletonOrderSummaryTable />);
     // Act
-    const skeleton = screen.getByTestId("loading-skeleton-order-summary-table");
+    const skeleton = screen.getByTestId("skeleton-order-summary-table");
 
     // Assert
     expect(skeleton).toBeInTheDocument();
