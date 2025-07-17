@@ -10,7 +10,7 @@ jest.mock("next/navigation", () => ({
   useSearchParams: jest.fn(),
 }));
 
-jest.mock("@/utils/useBuildUrlSearchParam", () => ({
+jest.mock("@/hooks/useBuildUrlSearchParam", () => ({
   useBuildUrlSearchParam: jest.fn(),
 }));
 
