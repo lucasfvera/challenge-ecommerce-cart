@@ -1,5 +1,3 @@
-import React from "react";
-
 export const SkeletonCart = () => (
   <div
     className="p-5 w-full max-w-[678px] justify-between h-[196px] flex gap-6"
