@@ -39,7 +39,10 @@ const GameCardListContent = ({ gamesData }: GameCardListContentProps) => {
       // This is to keep the genre when fetching new pages but for this use case
       // we don't actually have multiple pages for the genres
       const currentGenre = searchParams.get("genre") || "";
-      const res = await fetchGamesAction(nextPageNumber, currentGenre);
+      const res = await fetchGamesAction(
+        nextPageNumber,
+        currentGenre !== "all" ? currentGenre : ""
+      );
       startTransition(() => {
         if (res) {
           setLocalGamesData(res);
