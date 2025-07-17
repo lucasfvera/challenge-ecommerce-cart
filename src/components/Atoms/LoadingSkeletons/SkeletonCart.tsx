@@ -1,28 +1,28 @@
 export const SkeletonCart = () => (
   <div
-    className="p-5 w-full max-w-[678px] justify-between h-[196px] flex gap-6"
+    className="flex h-[196px] w-full max-w-[678px] justify-between gap-6 p-5"
     data-testid="skeleton-cart"
   >
     {/* Image skeleton */}
-    <div className="relative min-w-[259px] md:min-w-[256px] h-[160px]">
-      <div className="w-full h-full bg-gray-300 animate-pulse rounded-xl" />
+    <div className="relative h-[160px] min-w-[259px] md:min-w-[256px]">
+      <div className="h-full w-full animate-pulse rounded-xl bg-gray-300" />
     </div>
 
     {/* Content skeleton */}
-    <div className="flex flex-1 flex-col gap-5 justify-between">
+    <div className="flex flex-1 flex-col justify-between gap-5">
       <div className="flex flex-col gap-3">
-        <div className="h-4 w-20 bg-gray-300 animate-pulse rounded" />
+        <div className="h-4 w-20 animate-pulse rounded bg-gray-300" />
         <div className="flex flex-col gap-2">
-          <div className="h-4 w-32 bg-gray-300 animate-pulse rounded" />
-          <div className="h-3 w-40 bg-gray-300 animate-pulse rounded" />
+          <div className="h-4 w-32 animate-pulse rounded bg-gray-300" />
+          <div className="h-3 w-40 animate-pulse rounded bg-gray-300" />
         </div>
       </div>
-      <div className="h-4 w-12 bg-gray-300 animate-pulse rounded self-end" />
+      <div className="h-4 w-12 animate-pulse self-end rounded bg-gray-300" />
     </div>
 
     {/* Remove button skeleton */}
     <div className="self-start">
-      <div className="h-6 w-6 bg-gray-300 animate-pulse rounded-full" />
+      <div className="h-6 w-6 animate-pulse rounded-full bg-gray-300" />
     </div>
   </div>
 );

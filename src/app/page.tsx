@@ -18,10 +18,10 @@ export default async function Home({
   return (
     <div className="relative w-full pb-12">
       <div className="relative py-12">
-        <p className="text-2xl font-bold mb-9 md:mb-12">Top Sellers</p>
+        <p className="mb-9 text-2xl font-bold md:mb-12">Top Sellers</p>
         <GenreFilterDropdown />
         <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full border-b border-b-neutral-extra-light"
+          className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 border-b border-b-neutral-extra-light"
           id="divider"
         />
       </div>

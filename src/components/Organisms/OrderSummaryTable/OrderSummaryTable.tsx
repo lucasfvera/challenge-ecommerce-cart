@@ -12,19 +12,19 @@ export const OrderSummaryTable = ({ games }: { games: Game[] | null }) => {
 
   //TODO Add empty state to the cart
   return (
-    <div className="flex flex-col gap-8 w-full max-w-[500px]">
-      <div className="flex flex-col p-8 rounded-lg border-[#8f8f8f] border-[0.5px] gap-8 w-full">
+    <div className="flex w-full max-w-[500px] flex-col gap-8">
+      <div className="flex w-full flex-col gap-8 rounded-lg border-[0.5px] border-[#8f8f8f] p-8">
         <div>
           <p className="text-xl font-bold">Order Summary</p>
           <p className="text-lg">
             {numberOfItems} item{numberOfItems > 1 ? "s" : ""}
           </p>
         </div>
-        <div className="flex flex-col py-5 gap-6">
+        <div className="flex flex-col gap-6 py-5">
           <div className="flex flex-col gap-3">
             {games.map((game) => (
               <div key={game.id} className="flex justify-between">
-                <p className="text-lg truncate max-w-[60%]">{game.name}</p>
+                <p className="max-w-[60%] truncate text-lg">{game.name}</p>
                 <p className="text-lg">$ {game.price}</p>
               </div>
             ))}

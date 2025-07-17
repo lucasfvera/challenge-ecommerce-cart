@@ -21,12 +21,12 @@ export const GenreFilterDropdown = () => {
   };
 
   return (
-    <div className="flex gap-6 justify-end w-full">
+    <div className="flex w-full justify-end gap-6">
       <p className="text-xs font-bold">Genre</p>
-      <div className="w-px h-[22px] border-r-2 border-neutral-dark" />
+      <div className="h-[22px] w-px border-r-2 border-neutral-dark" />
       <select
         onChange={optionHandler}
-        className="text-xs flex-1 xs:flex-none xs:self-start"
+        className="flex-1 text-xs xs:flex-none xs:self-start"
         defaultValue={selectedGenre ? selectedGenre : "all"}
       >
         <option value="all">All</option>

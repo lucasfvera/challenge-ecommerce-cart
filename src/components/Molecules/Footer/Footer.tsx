@@ -6,7 +6,7 @@ const FOOTER_HEIGHT = 172;
 export const Footer = () => {
   return (
     <footer
-      className={`bg-[#404040] flex items-center justify-center py-16 md:px-32 px-6 h-[${FOOTER_HEIGHT}px]`}
+      className={`flex items-center justify-center bg-[#404040] px-6 py-16 md:px-32 h-[${FOOTER_HEIGHT}px]`}
     >
       <Link href={"/"}>
         <Image

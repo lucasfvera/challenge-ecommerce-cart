@@ -3,5 +3,5 @@ interface LogoTypography {
 }
 
 export const LogoTypography = ({ children }: LogoTypography) => {
-  return <p className="text-[#585660] font-medium">{children}</p>;
+  return <p className="font-medium text-[#585660]">{children}</p>;
 };

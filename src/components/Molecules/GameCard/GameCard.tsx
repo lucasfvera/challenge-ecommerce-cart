@@ -15,10 +15,10 @@ export const GameCard = ({ game, ctaAction, isGameInCart }: GameCardProps) => {
   const { genre, price, name, isNew, image } = game;
 
   return (
-    <div className="p-6 rounded-2xl border-[0.5px] border-neutral-border w-full flex flex-col gap-5">
-      <div className="relative min-h-[240px] rounded-t-2xl overflow-hidden">
+    <div className="flex w-full flex-col gap-5 rounded-2xl border-[0.5px] border-neutral-border p-6">
+      <div className="relative min-h-[240px] overflow-hidden rounded-t-2xl">
         {isNew && (
-          <p className="absolute top-3 left-3 rounded px-3 py-2 bg-white z-10 text-tag-desktop">
+          <p className="absolute left-3 top-3 z-10 rounded bg-white px-3 py-2 text-tag-desktop">
             New
           </p>
         )}
@@ -33,7 +33,7 @@ export const GameCard = ({ game, ctaAction, isGameInCart }: GameCardProps) => {
       <div className="flex flex-col gap-3">
         <p className="text-ag font-bold text-neutral-medium">{genre}</p>
         <div className="flex w-full justify-between text-neutral-dark">
-          <p className="text-lg font-bold text-inherit truncate max-w-[70%]">
+          <p className="max-w-[70%] truncate text-lg font-bold text-inherit">
             {name}
           </p>
           <p className="text-xs font-bold text-inherit">$ {price}</p>

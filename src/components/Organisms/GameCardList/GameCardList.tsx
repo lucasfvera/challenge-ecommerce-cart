@@ -52,7 +52,7 @@ export const GameCardList = ({ gamesData }: GameCardListProps) => {
   };
 
   return (
-    <div className="py-12 grid grid-cols-[repeat(auto-fit,_minmax(300px,380px))] justify-center place-items-stretch gap-12 w-full">
+    <div className="grid w-full grid-cols-[repeat(auto-fit,_minmax(300px,380px))] place-items-stretch justify-center gap-12 py-12">
       {games.map((game) => (
         <GameCard
           ctaAction={() =>

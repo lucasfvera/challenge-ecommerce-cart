@@ -26,13 +26,13 @@ export const PageContent = () => {
   return (
     <>
       <div className="py-8 md:py-12">
-        <p className="text-xl md:text-2xl font-bold mb-3">Your Cart</p>
+        <p className="mb-3 text-xl font-bold md:text-2xl">Your Cart</p>
         <p className="text-xs md:text-xl">{games?.length} items</p>
       </div>
       {games && games.length === 0 ? (
         <EmptyCartState />
       ) : (
-        <div className="flex flex-col lg:flex-row justify-between gap-14">
+        <div className="flex flex-col justify-between gap-14 lg:flex-row">
           <CartGamesList games={games} />
           <OrderSummaryTable games={games} />
         </div>

@@ -13,10 +13,10 @@ export const CartGameItem = ({ game }: GameCardProps) => {
   const { genre, price, name, image, description, isNew } = game;
 
   return (
-    <div className="p-5 w-full relative lg:max-w-[678px] md:justify-center lg:justify-between h-full min-h-[196px] flex gap-6 flex-col md:flex-row">
-      <div className="relative min-w-[259px] md:min-w-[256px] h-[136px] md:h-auto mr-9 md:mr-0">
+    <div className="relative flex h-full min-h-[196px] w-full flex-col gap-6 p-5 md:flex-row md:justify-center lg:max-w-[678px] lg:justify-between">
+      <div className="relative mr-9 h-[136px] min-w-[259px] md:mr-0 md:h-auto md:min-w-[256px]">
         {isNew && (
-          <p className="absolute top-3 left-3 rounded px-3 py-2 bg-white z-10 text-tag-desktop">
+          <p className="absolute left-3 top-3 z-10 rounded bg-white px-3 py-2 text-tag-desktop">
             New
           </p>
         )}
@@ -29,7 +29,7 @@ export const CartGameItem = ({ game }: GameCardProps) => {
         />
       </div>
 
-      <div className="flex flex-1 flex-col gap-5 justify-between">
+      <div className="flex flex-1 flex-col justify-between gap-5">
         <div className="flex flex-col gap-3 text-neutral-dark">
           <p className="text-ag font-bold text-neutral-medium">{genre}</p>
           <div className="flex flex-col gap-2">
@@ -37,13 +37,13 @@ export const CartGameItem = ({ game }: GameCardProps) => {
             <p className="text-ag text-inherit">{description}</p>
           </div>
         </div>
-        <p className="text-xs font-bold text-inherit self-end">$ {price}</p>
+        <p className="self-end text-xs font-bold text-inherit">$ {price}</p>
       </div>
 
       <button
         onClick={() => removeGameFromCart(game.id)}
         aria-label="remove item from cart"
-        className="self-start absolute right-0 md:relative"
+        className="absolute right-0 self-start md:relative"
       >
         <Image alt="" src={"/cross-icon.svg"} width={24} height={24} />
       </button>
