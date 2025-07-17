@@ -18,7 +18,7 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const baseClasses =
-    "text-button-mobile md:text-button-desktop rounded-lg disabled:bg-[#D4D4D4]";
+    "text-button-mobile md:text-button-desktop rounded-lg disabled:bg-neutral-disabled";
 
   const widthClasses = {
     default: "w-full lg:w-fit",
@@ -26,10 +26,10 @@ export const Button = ({
   };
 
   const variantClasses = {
-    primary: "text-white bg-[#585660] hover:bg-[#3E3C44] ",
-    secondary: "border border-[#3B3B3B] text-[#3B3B3B] hover:bg-[#EEEEEE]",
-    secondaryDestroy:
-      "border border-[#d04343] text-[#d04343] hover:bg-[#f64f4f4d]",
+    primary: "text-white bg-primary hover:bg-primary-hover ",
+    secondary:
+      "border border-neutral-dark text-neutral-dark hover:bg-neutral-light",
+    secondaryDestroy: "border border-danger text-danger hover:bg-danger-hover",
     tertiary: "",
   };
 

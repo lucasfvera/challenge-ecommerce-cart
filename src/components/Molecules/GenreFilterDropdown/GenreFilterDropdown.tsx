@@ -23,7 +23,7 @@ export const GenreFilterDropdown = () => {
   return (
     <div className="flex gap-6 justify-end w-full">
       <p className="text-xs font-bold">Genre</p>
-      <div className="w-px h-[22px] border-r-2 border-[#3B3B3B]" />
+      <div className="w-px h-[22px] border-r-2 border-neutral-dark" />
       <select
         onChange={optionHandler}
         className="text-xs flex-1 xs:flex-none xs:self-start"

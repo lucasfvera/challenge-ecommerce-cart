@@ -8,6 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        "neutral-dark": "#3B3B3B",
+        "neutral-medium": "#737373",
+        "neutral-border": "#8F8F8F",
+        "neutral-disabled": "#D4D4D4",
+        "neutral-light": "#EEEEEE",
+        "neutral-extra-light": "#EFEDF3",
+        primary: "#585660",
+        "primary-hover": "#3E3C44",
+        danger: "#d04343",
+        "danger-hover": "#f64f4f4d",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

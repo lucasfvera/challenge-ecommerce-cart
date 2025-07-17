@@ -21,7 +21,7 @@ export default async function Home({
         <p className="text-2xl font-bold mb-9 md:mb-12">Top Sellers</p>
         <GenreFilterDropdown />
         <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full border-b border-b-[#EFEDF3]"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full border-b border-b-neutral-extra-light"
           id="divider"
         />
       </div>

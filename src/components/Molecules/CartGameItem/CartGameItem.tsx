@@ -30,8 +30,8 @@ export const CartGameItem = ({ game }: GameCardProps) => {
       </div>
 
       <div className="flex flex-1 flex-col gap-5 justify-between">
-        <div className="flex flex-col gap-3 text-[#3B3B3B]">
-          <p className="text-ag font-bold text-[#737373]">{genre}</p>
+        <div className="flex flex-col gap-3 text-neutral-dark">
+          <p className="text-ag font-bold text-neutral-medium">{genre}</p>
           <div className="flex flex-col gap-2">
             <p className="text-xs font-bold text-inherit">{name}</p>
             <p className="text-ag text-inherit">{description}</p>

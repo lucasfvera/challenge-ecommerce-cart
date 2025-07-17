@@ -29,7 +29,7 @@ export const OrderSummaryTable = ({ games }: { games: Game[] | null }) => {
               </div>
             ))}
           </div>
-          <div className="border-b border-b-[#8f8f8f]"></div>
+          <div className="border-b border-b-neutral-border"></div>
           <div className="flex justify-between">
             <p className="text-xs font-bold">Order Total</p>
             <p className="text-xs font-bold">$ {totalOrderPrice}</p>

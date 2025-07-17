@@ -15,7 +15,7 @@ export const GameCard = ({ game, ctaAction, isGameInCart }: GameCardProps) => {
   const { genre, price, name, isNew, image } = game;
 
   return (
-    <div className="p-6 rounded-2xl border-[0.5px] border-[#8F8F8F] w-full flex flex-col gap-5">
+    <div className="p-6 rounded-2xl border-[0.5px] border-neutral-border w-full flex flex-col gap-5">
       <div className="relative min-h-[240px] rounded-t-2xl overflow-hidden">
         {isNew && (
           <p className="absolute top-3 left-3 rounded px-3 py-2 bg-white z-10 text-tag-desktop">
@@ -31,8 +31,8 @@ export const GameCard = ({ game, ctaAction, isGameInCart }: GameCardProps) => {
         />
       </div>
       <div className="flex flex-col gap-3">
-        <p className="text-ag font-bold text-[#737373]">{genre}</p>
-        <div className="flex w-full justify-between text-[#3B3B3B]">
+        <p className="text-ag font-bold text-neutral-medium">{genre}</p>
+        <div className="flex w-full justify-between text-neutral-dark">
           <p className="text-lg font-bold text-inherit truncate max-w-[70%]">
             {name}
           </p>

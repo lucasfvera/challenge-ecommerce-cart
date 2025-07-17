@@ -14,7 +14,7 @@ export const CartGamesList = ({ games }: { games: Game[] | null }) => {
       {games.map((game) => (
         <Fragment key={game.id}>
           <CartGameItem game={game} />
-          <div className="w-full border-b-[0.5px] border-[#8f8f8f] last:hidden"></div>
+          <div className="w-full border-b-[0.5px] border-neutral-border last:hidden"></div>
         </Fragment>
       ))}
     </div>

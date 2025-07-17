@@ -18,7 +18,7 @@ export const SkeletonOrderSummaryTable = () => {
               </div>
             ))}
           </div>
-          <div className="border-b border-b-[#8f8f8f]" />
+          <div className="border-b border-b-neutral-border" />
           <div className="flex justify-between">
             <div className="h-4 w-20 bg-gray-300 animate-pulse rounded" />
             <div className="h-4 w-12 bg-gray-300 animate-pulse rounded" />
