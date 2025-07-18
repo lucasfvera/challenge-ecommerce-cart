@@ -2,7 +2,7 @@ import { SkeletonGameList } from "@/components/Atoms/LoadingSkeletons/SkeletonGa
 import { GenreFilterDropdown } from "@/components/Molecules/GenreFilterDropdown/GenreFilterDropdown";
 import { ErrorState } from "@/components/Organisms/ErrorState/ErrorState";
 import { GameCardList } from "@/components/Organisms/GameCardList/GameCardList";
-import { fetchGamesAction } from "@/services/fetchGamesAction";
+import { fetchGamesAction } from "@/services/gamesApi";
 import { Suspense } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 

@@ -4,7 +4,7 @@ import { EmptyCartState } from "@/app/cart/EmptyCartState";
 import { CartGamesList } from "@/components/Organisms/CartGamesList/CartGamesList";
 import { OrderSummaryTable } from "@/components/Organisms/OrderSummaryTable/OrderSummaryTable";
 import { useCartStorage } from "@/hooks/useCartStorage";
-import { fetchGamesByIdAction } from "@/services/fetchGamesAction";
+import { fetchGamesByIdAction } from "@/services/gamesApi";
 import { Game } from "@/utils/endpoint";
 import { useEffect, useState, useTransition } from "react";
 

@@ -3,7 +3,7 @@
 import { GamesResponse } from "@/app/api/games/route";
 import { Button } from "@/components/Atoms/Button/Button";
 import { GameCard } from "@/components/Molecules/GameCard/GameCard";
-import { fetchGamesAction } from "@/services/fetchGamesAction";
+import { fetchGamesAction } from "@/services/gamesApi";
 import { Game } from "@/utils/endpoint";
 import { useSearchParams } from "next/navigation";
 import { use, useState, useTransition } from "react";
