@@ -1,4 +1,4 @@
-import { LogoTypography } from "@/components/Atoms/Typography/LogoTypograhpy";
+import { LogoTypography } from "@/components/Atoms/Typography/LogoTypography";
 import Image from "next/image";
 import Link from "next/link";
 
