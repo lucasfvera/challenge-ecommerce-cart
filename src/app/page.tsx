@@ -1,8 +1,10 @@
 import { SkeletonGameList } from "@/components/Atoms/LoadingSkeletons/SkeletonGameList";
 import { GenreFilterDropdown } from "@/components/Molecules/GenreFilterDropdown/GenreFilterDropdown";
+import { ErrorState } from "@/components/Organisms/ErrorState/ErrorState";
 import { GameCardList } from "@/components/Organisms/GameCardList/GameCardList";
 import { fetchGamesAction } from "@/services/fetchGamesAction";
 import { Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 
 export default async function Home({
   searchParams,
@@ -24,9 +26,19 @@ export default async function Home({
           id="divider"
         />
       </div>
-      <Suspense key={genre} fallback={<SkeletonGameList />}>
-        <GameCardList gamesData={gamesData} />
-      </Suspense>
+      <ErrorBoundary
+        key={genre}
+        fallback={
+          <ErrorState
+            message="There was an error while fetching the data"
+            description="We can't get the game list right now. Try again later!"
+          />
+        }
+      >
+        <Suspense fallback={<SkeletonGameList />}>
+          <GameCardList gamesData={gamesData} />
+        </Suspense>
+      </ErrorBoundary>
     </div>
   );
 }

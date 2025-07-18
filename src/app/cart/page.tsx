@@ -1,6 +1,9 @@
 import { PageContent } from "@/app/cart/PageContent";
+import { ErrorState } from "@/components/Organisms/ErrorState/ErrorState";
+
 import Image from "next/image";
 import Link from "next/link";
+import { ErrorBoundary } from "react-error-boundary";
 
 export default async function CartPage() {
   return (
@@ -16,7 +19,16 @@ export default async function CartPage() {
       TODO: We could pass it through query params and fetch those in the server,
       we would need to properly sanitize the params if so
       */}
-      <PageContent />
+      <ErrorBoundary
+        fallback={
+          <ErrorState
+            message="There was an error while fetching the cart"
+            description="We can't get the cart items right now. Try again later!"
+          />
+        }
+      >
+        <PageContent />
+      </ErrorBoundary>
     </div>
   );
 }

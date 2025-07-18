@@ -10,7 +10,10 @@ export const fetchGamesAction = async (page = 1, genre = "") => {
     const data: GamesResponse = await response.json();
     return data;
   } catch (e) {
-    console.error("Something failed while fetching the games", e);
+    const errorMsg = "Something failed while fetching the games";
+    // We should log this to another service or a error tracking system
+    console.error(errorMsg, e);
+    throw new Error(errorMsg);
   }
 };
 
@@ -25,6 +28,9 @@ export const fetchGamesByIdAction = async (ids = [] as string[]) => {
     const data: Pick<GamesResponse, "games"> = await response.json();
     return data;
   } catch (e) {
-    console.error("Something failed while fetching the games", e);
+    const errorMsg = "Something failed while fetching the games by id";
+    // We should log this to another service or a error tracking system
+    console.error(errorMsg, e);
+    throw new Error(errorMsg);
   }
 };
