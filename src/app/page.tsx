@@ -1,5 +1,7 @@
 import { SkeletonGameList } from "@/components/Atoms/LoadingSkeletons/SkeletonGameList";
 import { GenreFilterDropdown } from "@/components/Molecules/GenreFilterDropdown/GenreFilterDropdown";
+// import { GenreFilterDropdownServer } from "@/components/Molecules/GenreFilterDropdown/ServerComponent/GenreFilterDropdown.server";
+
 import { ErrorState } from "@/components/Organisms/ErrorState/ErrorState";
 import { GameCardList } from "@/components/Organisms/GameCardList/GameCardList";
 import { fetchGamesAction } from "@/services/gamesApi";
@@ -21,6 +23,7 @@ export default async function Home({
       <div className="relative py-12">
         <p className="mb-9 text-2xl font-bold md:mb-12">Top Sellers</p>
         <GenreFilterDropdown />
+        {/* <GenreFilterDropdownServer selectedGenre={genre} /> */}
         <div
           className="absolute bottom-0 left-1/2 w-full -translate-x-1/2 border-b border-b-neutral-extra-light"
           id="divider"
